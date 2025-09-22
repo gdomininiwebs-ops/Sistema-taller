@@ -4,11 +4,7 @@ from datetime import datetime, date
 
 # Configuración de conexión a Supabase
 DB_CONFIG = {
-    "dbname": "postgres",
-    "user": "postgres.mgjwteyobxdbowwddjwm",
-    "password": "Dominini1104.",
-    "host": "aws-1-sa-east-1.pooler.supabase.com",
-    "port": 6543
+
 }
 def get_connection():
     return psycopg2.connect(**DB_CONFIG, cursor_factory=RealDictCursor)
@@ -525,4 +521,5 @@ def obtener_reporte_ventas_fecha(fecha_inicio, fecha_fin):
     resultado = cursor.fetchone()
     conn.close()
     return [("Cantidad de ventas", resultado["cantidad_ventas"]), ("Total vendido", round(resultado["total_ventas"], 2))]
+
 
